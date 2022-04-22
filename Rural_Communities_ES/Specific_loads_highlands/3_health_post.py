@@ -19,8 +19,8 @@ User_list.append(HP)
 
 #Appliances
 
-HP_indoor_bulb = HP.Appliance(HP,12,7,2,690,0.2,10)
-HP_indoor_bulb.windows([480,720],[870,1440],0.35)
+HP_indoor_bulb = HP.Appliance(HP,12,7,2,630,0.1,10)
+HP_indoor_bulb.windows([420,870],[870,1440],0.35)
 
 HP_outdoor_bulb = HP.Appliance(HP,1,13,2,690,0.2,10)
 HP_outdoor_bulb.windows([0,342],[1037,1440],0.35)
@@ -31,7 +31,7 @@ HP_Phone_charger.windows([480,720],[900,1440],0.35)
 HP_TV = HP.Appliance(HP,1,150,2,360,0.1,60)
 HP_TV.windows([480,720],[780,1020],0.2)
 
-HP_radio = HP.Appliance(HP,1,40,2,360,0.3,60)
+HP_radio = HP.Appliance(HP,1,40,2,300,0.1,60)
 HP_radio.windows([480,720],[780,1020],0.35)
 
 HP_PC = HP.Appliance(HP,1,200,2,300,0.1,10)

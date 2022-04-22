@@ -18,8 +18,8 @@ HC = User("Health center", 1)
 User_list.append(HC)
 
 
-HC_indoor_bulb = HC.Appliance(HC,20,7,2,690,0.2,10)
-HC_indoor_bulb.windows([480,720],[870,1440],0.35)
+HC_indoor_bulb = HC.Appliance(HC,12,7,2,630,0.1,10)
+HC_indoor_bulb.windows([420,870],[870,1440],0.35)
 
 HC_outdoor_bulb = HC.Appliance(HC,5,13,2,690,0.2,10)
 HC_outdoor_bulb.windows([0,342],[1037,1440],0.35)
@@ -30,7 +30,7 @@ HC_Phone_charger.windows([480,720],[900,1440],0.35)
 HC_TV = HC.Appliance(HC,2,150,2,360,0.1,60)
 HC_TV.windows([480,720],[780,1020],0.2)
 
-HC_radio = HC.Appliance(HC,5,40,2,360,0.3,60)
+HC_radio = HC.Appliance(HC,5,40,2,300,0.2,60)
 HC_radio.windows([480,720],[780,1020],0.35)
 
 HC_PC = HC.Appliance(HC,2,200,2,300,0.1,10)
