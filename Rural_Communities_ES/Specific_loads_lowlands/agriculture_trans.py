@@ -26,5 +26,5 @@ LAU_GD.windows([420,1080],[0,0],0.35)
 LAU_VW = LAU.Appliance(LAU,1,1170,1,480,0.2,15,occasional_use = 0.82)
 LAU_VW.windows([420,1140],[0,0],0.35)
 
-LAU_BT = LAU.Appliance(LAU,1,370,2,900,0.2,180)
-LAU_BT.windows([360,930],[1080,1440],0.35)
+LAU_BT = LAU.Appliance(LAU,1,370,2,700,0.2,180)
+LAU_BT.windows([300,1440],[1080,1440],0.35)
