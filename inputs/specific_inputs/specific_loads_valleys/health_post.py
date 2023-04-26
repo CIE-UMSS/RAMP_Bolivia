@@ -6,8 +6,7 @@ Created on Mon Sep 13 10:56:48 2021
 """
 
 '''
-Paper: Energy sufficiency (SDEWES LA 2022)
-User: Health Post - LOWLANDS
+User: Health Post - VALLEYS
 '''
 
 from core import User, np
@@ -52,10 +51,9 @@ HP_needle_destroyer.windows([480,720],[0,0],0.35)
 HP_water_pump = HP.Appliance(HP,1,400,1,30,0.2,10)
 HP_water_pump.windows([480,720],[0,0],0.35)
 
-HP_Fridge = HP.Appliance(HP,3,150,1,1440,0,30, 'yes',3)
-HP_Fridge.windows([0,1440],[0,0])
-HP_Fridge.specific_cycle_1(150,20,5,10)
-HP_Fridge.specific_cycle_2(150,15,5,15)
-HP_Fridge.specific_cycle_3(150,10,5,20)
-HP_Fridge.cycle_behaviour([580,1200],[0,0],[420,579],[0,0],[0,419],[1201,1440])
+HP_Freezer = HP.Appliance(HP,1,200,1,1440,0,30,'yes',2)
+HP_Freezer.windows([0,1440],[0,0])
+HP_Freezer.specific_cycle_1(5,15,200,15)
+HP_Freezer.specific_cycle_2(5,20,200,10)
+HP_Freezer.cycle_behaviour([360,1199],[0,0],[0,359],[1200,1440])
 

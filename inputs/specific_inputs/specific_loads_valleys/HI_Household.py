@@ -6,8 +6,7 @@ Created on Mon Sep 13 10:32:11 2021
 """
 
 '''
-Paper: Energy sufficiency (SDEWES LA 2022)
-User: High Income Household - LOWLANDS
+User: High Income Household - VALLEYS
 '''
 
 from core import User, np
@@ -29,9 +28,6 @@ H2_TV.windows([1082,1440],[0,60],0.35)
 
 H2_DVD = H2.Appliance(H2,1,8,2,40,0.1,5)
 H2_DVD.windows([1082,1440],[0,60],0.35)
-
-H2_Antenna = H2.Appliance(H2,1,8,2,80,0.1,5)
-H2_Antenna.windows([1082,1440],[0,60],0.35)
 
 H2_Radio = H2.Appliance(H2,1,36,2,60,0.1,5)
 H2_Radio.windows([390,450],[1082,1260],0.35)

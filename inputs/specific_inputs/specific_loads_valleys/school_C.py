@@ -6,8 +6,7 @@ Created on Mon Sep 13 12:33:21 2021
 """
 
 '''
-Paper: Energy sufficiency (SDEWES 2022)
-User: School C - LOWLANDS
+User: School C - VALLEYS
 '''
 
 from core import User, np
@@ -35,12 +34,11 @@ SC_radio.windows([480,780],[0,0],0.35)
 SC_DVD = SC.Appliance(SC,2,8,1,120,0.1,5, occasional_use = 0.5)
 SC_DVD.windows([480,780],[0,0],0.35)
 
-SC_Freezer = SC.Appliance(SC,1,200,1,1440,0,30, 'yes',3)
-SC_Freezer.windows([0,1440])
-SC_Freezer.specific_cycle_1(200,20,5,10)
-SC_Freezer.specific_cycle_2(200,15,5,15)
-SC_Freezer.specific_cycle_3(200,10,5,20)
-SC_Freezer.cycle_behaviour([580,1200],[0,0],[510,579],[0,0],[0,509],[1201,1440])
+SC_Freezer = SC.Appliance(SC,1,200,1,1440,0,30, 'yes',2)
+SC_Freezer.windows([0,1440],[0,0])
+SC_Freezer.specific_cycle_1(5,15,200,15)
+SC_Freezer.specific_cycle_2(200,10,5,20)
+SC_Freezer.cycle_behaviour([480,1200],[0,0],[0,479],[1201,1440])
 
 SC_PC = SC.Appliance(SC,25,50,1,210,0.1,10)
 SC_PC.windows([480,780],[0,0],0.35)

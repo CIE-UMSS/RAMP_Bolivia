@@ -6,8 +6,7 @@ Created on Mon Sep 13 11:10:35 2021
 """
 
 '''
-Paper: Energy sufficiency (SDEWES LA 2022).
-User: Health Center - LOWLANDS
+User: Health Center - VALLEYS
 '''
 
 from core import User, np
@@ -51,12 +50,11 @@ HC_needle_destroyer.windows([480,720],[0,0],0.35)
 HC_water_pump = HC.Appliance(HC,1,400,1,45,0.2,10)
 HC_water_pump.windows([480,720],[0,0],0.35)
 
-HC_Fridge = HC.Appliance(HC,4,150,1,1440,0,30, 'yes',3)
-HC_Fridge.windows([0,1440],[0,0])
-HC_Fridge.specific_cycle_1(150,20,5,10)
-HC_Fridge.specific_cycle_2(150,15,5,15)
-HC_Fridge.specific_cycle_3(150,10,5,20)
-HC_Fridge.cycle_behaviour([580,1200],[0,0],[420,579],[0,0],[0,419],[1201,1440])
+HC_Freezer = HC.Appliance(HC,1,200,1,1440,0,30,'yes',2)
+HC_Freezer.windows([0,1440],[0,0])
+HC_Freezer.specific_cycle_1(5,15,200,15)
+HC_Freezer.specific_cycle_2(5,20,200,10)
+HC_Freezer.cycle_behaviour([360,1199],[0,0],[0,359],[1200,1440])
 
 HC_microscope = HC.Appliance(HC,2,3,2,120,0.2,10, occasional_use=0.33)
 HC_microscope.windows([480,720],[840,960],0.35)
