@@ -18,7 +18,7 @@ User_list.append(HP)
 
 #Appliances
 
-HP_indoor_bulb = HP.Appliance(HP,12,7,2,690,0.2,10)
+HP_indoor_bulb = HP.Appliance(HP,12,7,2,630,0.1,10)
 HP_indoor_bulb.windows([480,720],[870,1440],0.35)
 
 HP_outdoor_bulb = HP.Appliance(HP,1,13,2,690,0.2,10)
@@ -39,16 +39,13 @@ HP_PC.windows([480,720],[1050,1440],0.35)
 HP_printer = HP.Appliance(HP,1,100,1,60,0.3,10)
 HP_printer.windows([540,1020],[0,0],0.35)
 
-HP_fan = HP.Appliance(HP,2,60,1,240,0.2,60)
-HP_fan.windows([660,1080],[0,0],0.35)
-
 HP_sterilizer_stove = HP.Appliance(HP,1,600,2,120,0.3,30, occasional_use=0.33)
 HP_sterilizer_stove.windows([480,720],[780,1020],0.35)
 
 HP_needle_destroyer = HP.Appliance(HP,1,70,1,60,0.3,10, occasional_use=0.33)
 HP_needle_destroyer.windows([480,720],[0,0],0.35)
 
-HP_water_pump = HP.Appliance(HP,1,400,1,30,0.2,10)
+HP_water_pump = HP.Appliance(HP,1,400,1,30,0.2,10, occasional_use=0.33)
 HP_water_pump.windows([480,720],[0,0],0.35)
 
 HP_Freezer = HP.Appliance(HP,1,200,1,1440,0,30,'yes',2)

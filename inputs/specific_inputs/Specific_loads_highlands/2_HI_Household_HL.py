@@ -24,17 +24,17 @@ H2_indoor_bulb.windows([1082,1440],[0,30],0.35)
 H2_outdoor_bulb = H2.Appliance(H2,2,13,2,600,0.2,10)
 H2_outdoor_bulb.windows([0,330],[1082,1440],0.35)
 
-H2_TV = H2.Appliance(H2,2,60,2,120,0.1,5)
-H2_TV.windows([1082,1440],[0,60],0.35)
+H2_TV = H2.Appliance(H2,1,60,2,120,0.1,5)
+H2_TV.windows([750,840],[1082,1440],0.35)
 
 H2_DVD = H2.Appliance(H2,1,8,2,40,0.1,5)
-H2_DVD.windows([1082,1440],[0,60],0.35)
+H2_DVD.windows([750,840],[1082,1440],0.35)
 
 H2_Radio = H2.Appliance(H2,1,36,2,60,0.1,5)
 H2_Radio.windows([390,450],[1082,1260],0.35)
 
 H2_Phone_charger = H2.Appliance(H2,4,2,2,300,0.2,5)
-H2_Phone_charger.windows([1110,1440],[0,30],0.35)
+H2_Phone_charger.windows([1110,1440],[0,0],0.35)
 
 H2_Freezer = H2.Appliance(H2,1,200,1,1440,0,30,'yes',3)
 H2_Freezer.windows([0,1440],[0,0])

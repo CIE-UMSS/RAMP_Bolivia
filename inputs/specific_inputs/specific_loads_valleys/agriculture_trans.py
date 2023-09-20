@@ -11,20 +11,21 @@ User_list = []
 '''
 Paper: Energy sufficiency, lowlands.
 User: Lowlands agro-productive unit
+Dairy : milk production 
 '''
 
 #Definig users
 
-LAU = User("Lowlands agro-productive unit", 1)
-User_list.append(LAU)
+MILK = User("Lowlands agro-productive unit", 1)
+User_list.append(MILK)
 
 #Appliances
 
-LAU_GD = LAU.Appliance(LAU,1,9360,1,180,0.2,30,occasional_use = 0.33)
-LAU_GD.windows([420,1080],[0,0],0.35)
+MILK_indoor_bulb = MILK.Appliance(MILK,2,7,2,120,0.2,10)
+MILK_indoor_bulb.windows([1107,1440],[0,0],0.35)
+    
+MILK_outdoor_bulb = MILK.Appliance(MILK,1,13,2,600,0.2,10)                    
+MILK_outdoor_bulb.windows([0,330],[1107,1440],0.35)     
 
-LAU_VW = LAU.Appliance(LAU,1,1170,1,480,0.2,15,occasional_use = 0.82)
-LAU_VW.windows([420,1140],[0,0],0.35)
-
-LAU_BT = LAU.Appliance(LAU,1,370,2,900,0.2,180)
-LAU_BT.windows([360,930],[1080,1440],0.35)
+MILK_cooler_tank = MILK.Appliance(MILK,1,4000,2,480,0,240)                    
+MILK_cooler_tank.windows([360,600],[1080,1320],0.2)   

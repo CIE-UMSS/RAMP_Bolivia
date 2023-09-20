@@ -26,7 +26,7 @@ R_Blender.windows([420,480],[720,780],0.5)
 
 R_Freezer = R.Appliance(R,1,200,1,1440,0,30,'yes',3)
 R_Freezer.windows([0,1440],[0,0])
-R_Freezer.specific_cycle_1(200,15,5,15)
+R_Freezer.specific_cycle_1(200,20,5,15)
 R_Freezer.specific_cycle_2(200,15,5,15)
 R_Freezer.specific_cycle_3(200,10,5,20)
 R_Freezer.cycle_behaviour([480,1200],[0,0],[300,479],[0,0],[0,299],[1201,1440])
