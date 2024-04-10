@@ -9,12 +9,15 @@ MTF
 Tier 4 household
 """
 from ramp.core.core import User
+import pandas as pd
 
 User_list = []
 
 # Create new user classes
-H = User("Tier 3", 1)
+H = User("Tier 4", 1)
 User_list.append(H)
+
+#H_shower_P = pd.read_csv('shower_P_valleys.csv')
 
 
 # Create new appliances
@@ -33,11 +36,14 @@ H_Radio.windows([390,450],[1082,1260],0.35)
 H_Phone_charger = H.Appliance(2, 5, 2, 180, 0.2, 5)
 H_Phone_charger.windows([1080, 1440], [420, 600], 0.35)
 
-H_Blender = H.Appliance(1, 50, 3, 30, 0.1, 1, occasional_use=0.33)
+H_Blender = H.Appliance(1, 50, 3, 10, 0.1, 1, occasional_use=0.5)
 H_Blender.windows([420, 480], [660, 750], 0.35, [1140, 1200])
 
-H_Laptop = H.Appliance(H,1,70,1,90,0.3,30)
-H_Laptop.windows([960,1200],[0,0],0.35)
+H_Electric_kettle = H.Appliance(1, 50, 3, 5, 0.1, 1, occasional_use=0.5)
+H_Electric_kettle.windows([420, 480], [660, 750], 0.35, [1140, 1200])
+
+H_Laptop = H.Appliance(1,70,1,90,0.3,30)
+H_Laptop.windows([900,1200],[0,0],0.35)
 
 H_Refrigerator = H.Appliance(1, 200, 1, 1440, 0, 30, "yes", 2)
 H_Refrigerator.windows([0, 1440], [0, 0])
@@ -45,11 +51,15 @@ H_Refrigerator.specific_cycle_1(200, 15, 5, 15) #intemedio
 H_Refrigerator.specific_cycle_2(200, 10, 5, 20) #standard
 H_Refrigerator.cycle_behaviour([330, 1139], [0, 0], [0, 329], [1140, 1440])
 
-H_Iron = H.Appliance(1, 1000, 2, 10, 0.2, 1, occasional_use=0.15)
+H_Iron = H.Appliance(1, 1000, 2, 10, 0.2, 1, occasional_use=0.5)
 H_Iron.windows([420, 600], [1020, 1260], 0.35)
 
-H_washing_machine = H.Appliance(1, 800, 2, 120, 0.1, 15, occasional_use=0.15)
+H_washing_machine = H.Appliance(1, 800, 2, 120, 0.1, 15, occasional_use=0.33)
 H_washing_machine.windows([420, 600], [1020, 1260], 0.35)
+
+#H_shower = H.Appliance(1,H_shower_P,2,40,0.1,3, thermal_P_var = 0.2)
+#H_shower.windows([360,540],[1080,1260],0.2) #Use thermal series from valleys
+
 
 if __name__ == "__main__":
     from ramp.core.core import UseCase

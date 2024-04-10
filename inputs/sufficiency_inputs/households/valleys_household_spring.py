@@ -39,9 +39,7 @@ H_Freezer = H.Appliance(1, 200, 1, 1440, 0, 30, "yes", 2)
 H_Freezer.windows([0, 1440], [0, 0])
 H_Freezer.specific_cycle_1(200, 15, 5, 15) #intemedio
 H_Freezer.specific_cycle_2(200, 10, 5, 20) #standard
-H_Freezer.cycle_behaviour(
-    [330, 1139], [0, 0], [0, 329], [1140, 1440]
-)
+H_Freezer.cycle_behaviour([330, 1139], [0, 0], [0, 329], [1140, 1440])
 
 #H_Fan = H.Appliance(H,1,30,1,220,0.27,60, occasional_use=0.33)
 #H_Fan.windows([720,1080],[0,0],0.35)

@@ -1,38 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Mar  7 09:56:11 2024
+Created on Tue Feb 20 16:21:29 2024
 
 @author: claudia
-
-MTF
-Tier 2 household
 """
+
 from ramp.core.core import User
 
 User_list = []
 
+"""
+This input file represents a Low Consumption household in Raqaypampa Autonomous Territory
+"""
+
 # Create new user classes
-H = User("Tier 2", 1)
-User_list.append(H)
+LC = User("low consumption", 1)
+User_list.append(LC)
 
 
 # Create new appliances
+LC_LED_1 = LC.Appliance(1, 3, 1, 180, 0.3, 60)  #luz externa (considerar para la proxima encuesta diferenciar entre led interno y externo)
+LC_LED_1.windows([1080, 1440], [0, 0], 0.2)
 
-H_indoor_bulb = H.Appliance(3, 5, 2, 180, 0.2, 10)
-H_indoor_bulb.windows([1080, 1440], [0, 30], 0.35)
+LC_LED_2 = LC.Appliance(1, 3, 2, 300, 0.3, 120) #luz interna
+LC_LED_2.windows([0, 480], [1080, 1440], 0.2)
 
-H_outdoor_bulb = H.Appliance(1, 13, 2, 120, 0.2, 10)
-H_outdoor_bulb.windows([0, 330], [1170, 1440], 0.35)
+LC_Phone_charger = LC.Appliance(2, 5, 1, 180, 0.3, 60, occasional_use=0.33)   #considerar cargar de celulares de familiares/vecinos
+LC_Phone_charger.windows([720, 1440], [0, 0], 0.35)
 
-H_TV = H.Appliance(1, 50, 3, 90, 0.2, 5) # 22 inch LED technology #CRT technology 15 inch: 60W, LED/LCD are more efficient: 15 inch, around 15W
-H_TV.windows([750, 840], [1170, 1440], 0.35, [0, 30])
 
-H_Radio = H.Appliance(1,36,2,120,0.1,5)
-H_Radio.windows([390,450],[1082,1260],0.35)
 
-H_Phone_charger = H.Appliance(2, 5, 2, 180, 0.2, 5)
-H_Phone_charger.windows([1080, 1440], [420, 600], 0.35)
 
 
 if __name__ == "__main__":
@@ -62,4 +60,4 @@ if __name__ == "__main__":
         pp.Profile_cloud_plot(Profiles_list, Profiles_avg)
         
     # this would be a new method using work of @mohammadamint
-    pp.export_series(Profiles_series, j=None, fname= None, ofname= 'tier_2.csv')
+    pp.export_series(Profiles_series, j=None, fname= None, ofname= 'output_file_1_raq.csv')
