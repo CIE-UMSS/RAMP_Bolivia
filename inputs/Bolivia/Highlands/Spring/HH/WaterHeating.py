@@ -5,7 +5,7 @@ import pandas as pd
 User_list = []
 
 # === Load daily ambient temperatures from CSV ===
-temp_file_path = "Data/Highlands_Daily_temp.csv" #!!!! CHANGE ---------------
+temp_file_path = "Data/Highlands_Daily_temp.csv" # !!!! CHANGE ---------------
 df_temp = pd.read_csv(temp_file_path)
 daily_ambient_temp = df_temp["Temperature"].values
 
@@ -26,15 +26,7 @@ power_profile_W = mass_flow * cp_water * (target_temp - groundwater_temp) * 1000
 WH = User("Water Heating", 1)  # Create user with ID = 1
 User_list.append(WH)
 
-WH_shower = WH.Appliance(
-    number=1,                # One shower per user
-    power=power_profile_W,   # Daily power profile (365 values)
-    num_windows=2,           # Two usage windows per day
-    func_time=15,            # Each shower lasts 15 minutes
-    func_cycle=3,
-    occasional_use=1,        # Used daily (probability = 1)
-    thermal_P_var=0.1        # 10% thermal power variability
-)
+WH_shower = WH.Appliance(1, power_profile_W, 2, 30, 0.1, 3, thermal_P_var = 0.2)
 
 # === Define time windows when the shower may be used ===
 # Morning: 6:30–9:00 (390–540 minutes)
