@@ -26,13 +26,10 @@ power_profile_W = mass_flow * cp_water * (target_temp - groundwater_temp) * 1000
 WH = User("Water Heating", 1)  # Create user with ID = 1
 User_list.append(WH)
 
-WH_shower = WH.Appliance(HC,3,power_profile_W,2,60,0.1,15, occasional_use=0.33)
-WH_shower.windows([360,720],[780,1400],0.35)
+
+HC_shower = HC.Appliance(1,power_profile_W,2,15,0.1,3, thermal_P_var = 0.2, occasional_use=0.33)
+HC_shower.windows([360,540],[1080,1260],0.2) #Use thermal series from lowlands
 
 
-# === Define time windows when the shower may be used ===
-# Morning: 6:30–9:00 (390–540 minutes)
-# Evening: 18:00–20:00 (1080–1200 minutes)
-WH_shower.windows([390, 540], [1080, 1200], 0.35)
 
 
