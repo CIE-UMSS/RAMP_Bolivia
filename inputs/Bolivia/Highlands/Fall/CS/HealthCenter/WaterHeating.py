@@ -28,7 +28,8 @@ User_list.append(WH)
 
 
 HC_shower = HC.Appliance(1,power_profile_W,2,15,0.1,3, thermal_P_var = 0.2, occasional_use=0.33)
-HC_shower.windows([360,540],[1080,1260],0.2) #Use thermal series from lowlands
+HC_shower.windows([360,540],[1080,1260],0.2)
+
 
 
 
