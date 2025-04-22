@@ -2,7 +2,7 @@ simulation_settings:
 
   # Choose how to define simulation duration:
   # Options: "date_range", "seasonal", "full_year"
-  simulation_mode: "seasonal"
+  simulation_mode: "full_year"
 
 
   # The start date of the simulation (format: "YYYY-MM-DD").
@@ -135,6 +135,7 @@ simulation_settings:
                 - space_heating
                 - water_heating
                 - medical_equip
+                - water_supply
         public_lighting:
         count: 1
             energy_service: 
@@ -150,6 +151,7 @@ simulation_settings:
                 - space_cooling
                 - space_heating
                 - water_heating
+                - machinery
         store:
         count: 1
             energy_service:
@@ -159,5 +161,35 @@ simulation_settings:
                 - space_cooling
                 - space_heating
                 - water_heating
+        entertainment_business:
+        count: 1
+            energy_service:
+                - cold_storage
+                - ICT
+                - illumination
+        flour_processing:
+        count: 1
+            energy_service:
+                - flour_processing
+        restaurant:
+        count: 1
+            energy_service:
+                - cold_storage
+                - illumination  
+                - kitchen
+        store:
+        count: 1
+            energy_service:
+                - cold_storage
+                - ICT
+                - illumination
+        milk_production:
+        count: 1
+          energy_service:
+            - milk_production
+
+
+
+
              
         
