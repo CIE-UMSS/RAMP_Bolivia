@@ -1,5 +1,10 @@
 simulation_settings:
 
+  # Choose how to define simulation duration:
+  # Options: "date_range", "seasonal", "full_year"
+  simulation_mode: "seasonal"
+
+
   # The start date of the simulation (format: "YYYY-MM-DD").
   # Example: "2020-01-01" will simulate from January 1st, 2020.
   date_start: "2020-01-01"
@@ -23,10 +28,6 @@ simulation_settings:
     spring: 90   # Specify number of days for the spring season
     autumn: 90  # Specify number of days for the autumn season
     
-  # If set to true, this option will concatenate all the seasons to form a full year simulation.
-  # Example: full_year_simulation: true means that all seasons will be simulated together as one full year.
-  full_year_simulation: true  # If true, will concatenate all seasons into a full year
-
   regions:
     - lowlands
     - highlands
