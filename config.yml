@@ -30,9 +30,9 @@ simulation_settings:
     
   regions:
     - lowlands
-    - highlands
-    - valleys
-    - raqaypampa
+    #- highlands
+    #- valleys
+    #- raqaypampa
 
   # A list of seasons to simulate. You can add more seasons (e.g., spring, summer) or modify them.
   # Example: ["summer", "winter", "spring", "autumn"] defines four seasons.
@@ -49,41 +49,41 @@ simulation_settings:
   # "community" (full community simulation including all sectors).
   simulation_levels:
     - energy_service
-    - sector
-    - user_type
-    - community
+    #- sector
+    #- user_type
+    #- community
 
   sectors:  # The sectors involved in the simulation. Each sector contains different user types and their energy services.
     household:
-        high_consumption:  # Household sector: Contains different user types based on consumption level.
-        count: 1   # 'count' defines how many high-consumption households to simulate.
-            energy_service:   # 'energy_service' lists the energy services available for this user type.
-                              # Example: ["illumination", "refrigeration", "ict"] for high consumption households.
-              - illumination
-              - ICT
-              - cold_storage
-              - space_cooling
-              - space_heating
-              - water_heating
-        low_consumption:
-        count: 1
-            energy_service:
-              - illumination
-              - ICT
-              - cold_storage
-              - space_cooling
-              - space_heating
-              - water_heating
+        # high_consumption:  # Household sector: Contains different user types based on consumption level.
+        # count: 1   # 'count' defines how many high-consumption households to simulate.
+        #     energy_service:   # 'energy_service' lists the energy services available for this user type.
+        #                       # Example: ["illumination", "refrigeration", "ict"] for high consumption households.
+        #       - illumination
+        #       - ICT
+        #       - cold_storage
+        #       - space_cooling
+        #       - space_heating
+        #       - water_heating
+        # low_consumption:
+        # count: 1
+        #     energy_service:
+        #       - illumination
+        #       - ICT
+        #       - cold_storage
+        #       - space_cooling
+        #       - space_heating
+        #       - water_heating
          
         energy_sufficiency:
-        count: 1
+        count: 50
                 energy_service:
                   - illumination
-                  - ICT
-                  - cold_storage
-                  - space_cooling
-                  - space_heating
-                  - water_heating
+                  # - ICT
+                  # - cold_storage
+                  # - space_cooling
+                  # - space_heating
+                  # - water_heating
         
     community_services:   # Community services sector: Includes community services like schools, health posts, etc.
         small_school:
