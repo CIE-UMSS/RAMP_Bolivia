@@ -84,7 +84,7 @@ def collect_users(config, base_input_dir):
                                     print(f"Loaded user: {user}") 
                                     # Categorize user based on simulation levels
                                     if 'energy_service' in sim_settings['simulation_levels']:
-                                        users_by_level['energy_service'].append(user)
+                                        users_by_level[f"energy_service_{service}"].append(user)
                                     if 'sector' in sim_settings['simulation_levels']:
                                         users_by_level[f"sector_{sector}"].append(user)
                                     if 'user_type' in sim_settings['simulation_levels']:
@@ -103,14 +103,18 @@ def collect_users(config, base_input_dir):
 def run_simulations(users_by_level, config, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     sim_settings = config['simulation_settings']
+    simulation_mode = sim_settings.get('simulation_mode', 'seasonal')
+    is_full_year = simulation_mode == 'full_year'
 
     for region in sim_settings['regions']:
         for season in sim_settings['seasons']:
             date_start, date_end, season_days = get_simulation_dates(config, season)
-            full_year_simulation = sim_settings.get('full_year_simulation', True)
 
             for level in sim_settings['simulation_levels']:
                 matching_keys = [k for k in users_by_level if k.startswith(level)]
+
+                # DataFrame to collect results from different keys into columns
+                combined_df = pd.DataFrame()
 
                 for key in matching_keys:
                     users = users_by_level[key]
@@ -123,12 +127,39 @@ def run_simulations(users_by_level, config, output_dir):
                     df = pd.DataFrame(result)
                     df.index.name = 'time'
 
-                    suffix = f"{key}_{season}_{region}" if not full_year_simulation else f"{key}_full_year_{region}"
-                    output_path = os.path.join(output_dir, f"load_curve_{suffix}.csv")
-                    df.to_csv(output_path)
+                    # Extract the label for the column
+                    if level == 'energy_service':
+                        label = key.replace('energy_service_', '')
+                    elif level == 'sector':
+                        label = key.replace('sector_', '')
+                    elif level == 'user_type':
+                        label = key.replace('user_type_', '')
+                    elif level == 'community':
+                        label = 'community'
+                    else:
+                        label = key
 
-                    print(f"Saved: {output_path}")
+                    # Assume result is a Series or single-column DataFrame
+                    if isinstance(df, pd.DataFrame) and df.shape[1] == 1:
+                        df.columns = [label]
+                    else:
+                        df = df.sum(axis=1).to_frame(label)  # Fallback: sum if multiple cols
 
+                    if combined_df.empty:
+                        combined_df = df
+                    else:
+                        combined_df = combined_df.join(df, how='outer')
+
+                # Compose output file name
+                suffix = (
+                    f"{level}_full_year_{region}"
+                    if is_full_year else
+                    f"{level}_{season}_{region}"
+                )
+                output_path = os.path.join(output_dir, f"load_curve_{suffix}.csv")
+                combined_df.to_csv(output_path)
+
+                print(f"✅ Saved: {output_path}")
 
 if __name__ == "__main__":
     start_time = time.time()  # ⏱️ Start the timer
