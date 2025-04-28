@@ -5,7 +5,7 @@ import pandas as pd
 User_list = []
 
 # === Load daily ambient temperatures from CSV ===
-temp_file_path = "data/Lowands_Daily_temp.csv" # !!!! CHANGE ---------------
+temp_file_path = "data/Valleys_Daily_temp.csv" # !!!! CHANGE ---------------
 df_temp = pd.read_csv(temp_file_path)
 daily_ambient_temp = df_temp["Temperature"].values
 
