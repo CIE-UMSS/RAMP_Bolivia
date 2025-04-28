@@ -3,7 +3,7 @@ User_list = []
 
 
 ME = User("Medical equipment", 1)
-User_list.append(IL)
+User_list.append(ME)
 
 
 ME_sterilizer_stove = ME.Appliance(3,600,2,120,0.3,30, occasional_use=0.33)

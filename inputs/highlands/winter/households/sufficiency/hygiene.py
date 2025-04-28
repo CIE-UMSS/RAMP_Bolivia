@@ -30,6 +30,6 @@ HH = User("household hygiene", 1)  # Create user with ID = 1
 User_list.append(HH)
 
 HH_shower = HH.add_appliance(1, power_profile_W, 2, 30, 0.2, 3, thermal_P_var = 0.4)
-WH_shower.windows([360, 540], [1080, 1200], 0.2)
+HH_shower.windows([360, 540], [1080, 1200], 0.2)
 
 

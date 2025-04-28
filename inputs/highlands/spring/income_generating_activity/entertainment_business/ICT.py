@@ -5,7 +5,7 @@ User_list = []
 ICT = User("ICT", 1)
 User_list.append(ICT)
 
-ICT_Stereo = ICT.Appliance(1 ,150 ,2 ,90 ,0.1 ,5, occasional_use = 0.33)
+ICT_Stereo = ICT.add_appliance(1 ,150 ,2 ,90 ,0.1 ,5, occasional_use = 0.33)
 ICT_Stereo.windows([480 ,780] ,[0 ,0] ,0.35)
 
 ICT_TV = ICT.Appliance(1 ,60 ,2 ,120 ,0.1 ,5, occasional_use = 0.33)

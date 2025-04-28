@@ -6,7 +6,7 @@ PL = User("Public Lighting", 1)
 User_list.append(PL)
 
 
-PL_lamp_post = PL.Appliance(
+PL_lamp_post = PL.add_appliance(
     PL,        # The user this appliance belongs to
     1,         # Number of appliances
     40,        # Power consumption in watts (W)

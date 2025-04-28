@@ -6,7 +6,7 @@ CS = User("Cold Storage", 1)
 User_list.append(CS)
 
 
-CS_freezer = CS.Appliance(1,200,1,1440,0,30,'yes',3)
+CS_freezer = CS.add_appliance(1,200,1,1440,0,30,'yes',3)
 CS_freezer.windows([0,1440],[0,0])
 CS_freezer.specific_cycle_1(200,20,5,10)
 CS_freezer.specific_cycle_2(200,15,5,15)
