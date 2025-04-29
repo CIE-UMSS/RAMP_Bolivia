@@ -1,6 +1,6 @@
-from core import User
-User_list = []
+from ramp.core.core import User
 
+User_list = []
 
 IL = User("Illumination", 1)
 User_list.append(IL)
