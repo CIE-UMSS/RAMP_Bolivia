@@ -131,3 +131,5 @@ dmypy.json
 #config files
 config.yml
 config_roger.yml
+
+.qoto
