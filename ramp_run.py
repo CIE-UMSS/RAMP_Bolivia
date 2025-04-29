@@ -42,12 +42,12 @@ def get_simulation_dates(config, season=None):
         if season is None:
             raise ValueError("Season must be provided in 'seasonal' mode.")
         days = sim_settings['days_per_season'].get(season, 90)
-        date_start = pd.to_datetime("2020-01-01")
+        date_start = pd.to_datetime("2021-01-01")
         date_end = date_start + pd.Timedelta(days=days - 1)
 
     elif mode == 'full_year':
         total_days = sum(sim_settings['days_per_season'].get(season, 90) for season in sim_settings['seasons'])
-        date_start = pd.to_datetime("2020-01-01")
+        date_start = pd.to_datetime("2021-01-01")
         date_end = date_start + pd.Timedelta(days=total_days - 1)
         days = total_days
 
@@ -110,11 +110,15 @@ def run_simulations(users_by_level, config, output_dir):
         for season in sim_settings['seasons']:
             date_start, date_end, season_days = get_simulation_dates(config, season)
 
+            # Initialize the full year DataFrame (only for full year simulations)
+            if is_full_year:
+                full_year_df = pd.DataFrame()
+
             for level in sim_settings['simulation_levels']:
                 matching_keys = [k for k in users_by_level if k.startswith(level)]
 
                 # DataFrame to collect results from different keys into columns
-                combined_df = pd.DataFrame()
+                season_dfs = []
 
                 for key in matching_keys:
                     users = users_by_level[key]
@@ -145,21 +149,30 @@ def run_simulations(users_by_level, config, output_dir):
                     else:
                         df = df.sum(axis=1).to_frame(label)  # Fallback: sum if multiple cols
 
-                    if combined_df.empty:
-                        combined_df = df
-                    else:
-                        combined_df = combined_df.join(df, how='outer')
+                    season_dfs.append(df)
 
-                # Compose output file name
-                suffix = (
-                    f"{level}_full_year_{region}"
-                    if is_full_year else
-                    f"{level}_{season}_{region}"
-                )
+                # Combine the DataFrames for the current season
+                season_combined_df = pd.concat(season_dfs, axis=1)
+
+                # If it's a full-year simulation, store the full-year data
+                if is_full_year:
+                    full_year_df = pd.concat([full_year_df, season_combined_df], axis=0)
+                else:
+                    # Compose output file name
+                    suffix = f"{level}_{season}_{region}"
+                    output_path = os.path.join(output_dir, f"load_curve_{suffix}.csv")
+                    season_combined_df.to_csv(output_path)
+
+                    print(f"✅ Saved: {output_path}")
+
+            # If it's a full-year simulation, save the aggregated full year DataFrame
+            if is_full_year:
+                suffix = f"{level}_full_year_{region}"
                 output_path = os.path.join(output_dir, f"load_curve_{suffix}.csv")
-                combined_df.to_csv(output_path)
+                full_year_df.to_csv(output_path)
 
                 print(f"✅ Saved: {output_path}")
+
 
 if __name__ == "__main__":
     start_time = time.time()  # ⏱️ Start the timer
