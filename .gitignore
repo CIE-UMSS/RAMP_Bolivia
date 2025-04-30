@@ -132,4 +132,5 @@ dmypy.json
 config.yml
 config_roger.yml
 
-.qoto
+#model outputs
+outputs/*.csv
