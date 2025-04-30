@@ -5,7 +5,7 @@ simulation_settings:
   simulation_mode: "full_year"
 
 
-  # The start date of the simulation (format: "YYYY-MM-DD").
+  # The start date of the simulation (format: "YYYY-MM-DD"). This is used only when date_range simulation mode is set.
   # Example: "2020-01-01" will simulate from January 1st, 2020.
   date_start: "2020-01-01"
   
@@ -38,9 +38,9 @@ simulation_settings:
   # The number of days for each season in the simulation. You can specify different values for each season.
   days_per_season:
     summer: 90  # Specify number of days for the summer season
-    winter: 90  # Specify number of days for the winter season
-    spring: 90   # Specify number of days for the spring season
-    autumn: 90  # Specify number of days for the autumn season
+    winter: 92  # Specify number of days for the winter season
+    spring: 91   # Specify number of days for the spring season
+    fall: 92  # Specify number of days for the autumn season
     
   regions:
     - lowlands
