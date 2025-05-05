@@ -27,7 +27,7 @@ WH = User("Water Heating", 1)  # Create user with ID = 1
 User_list.append(WH)
 
 
-WH_shower = WH.add_appliance(1,power_profile_W,2,15,0.1,3, thermal_P_var = 0.2, occasional_use=0.33)
+WH_shower = WH.add_appliance(1,power_profile_W,2,15,0.1,3, thermal_p_var = 0.2, occasional_use=0.33)
 WH_shower.windows([360,540],[1080,1260],0.2)
 
 
