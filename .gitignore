@@ -134,3 +134,4 @@ config_roger.yml
 
 #model outputs
 outputs/*.csv
+/output/
