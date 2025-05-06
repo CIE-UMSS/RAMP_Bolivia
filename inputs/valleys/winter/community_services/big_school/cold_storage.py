@@ -1,4 +1,4 @@
-from core import User
+from ramp.core.core import User
 User_list = []
 
 
