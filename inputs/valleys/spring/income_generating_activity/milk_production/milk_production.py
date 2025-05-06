@@ -3,7 +3,7 @@ User_list = []
 
 
 MP = User("Milk Production", 1)
-User_list.append(CS)
+User_list.append(MP)
 
 MP_indoor_bulb = MP.add_appliance(2, 7, 2, 120, 0.2, 10)
 MP_indoor_bulb.windows([1107, 1440], [0, 0], 0.35)

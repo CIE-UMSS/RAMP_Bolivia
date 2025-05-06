@@ -11,5 +11,5 @@ CS_Freezer.windows([0, 1440], [0, 0])
 CS_Freezer.specific_cycle_1(200, 15, 5, 15) #intemedio
 CS_Freezer.specific_cycle_2(200, 10, 5, 20) #standard
 CS_Freezer.cycle_behaviour(
-    [490, 1079], [0, 0], [0, 419], [1080, 1440]
+    [330, 1139], [0, 0], [0, 329], [1140, 1440]
 )

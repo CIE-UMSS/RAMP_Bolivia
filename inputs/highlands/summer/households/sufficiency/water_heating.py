@@ -11,9 +11,7 @@ User_list.append(HWH)
 current_dir = os.path.dirname(__file__)  # /inputs/highlands/fall/households/sufficiency
 project_root = os.path.abspath(os.path.join(current_dir, "..", "..", "..", "..", ".."))  # RAMP_Bolivia
 csv_path = os.path.join(project_root, "data", "HL_power_profile_water_heating.csv")
-
-
-HH_shower_P = pd.read_csv(csv_path)
+HH_shower_P = pd.read_csv(csv_path, sep=";", decimal=",")
 
 
 HWH_shower = HWH.add_appliance(1, HH_shower_P, 2, 30, 0.2, 3, thermal_p_var=0.4)
