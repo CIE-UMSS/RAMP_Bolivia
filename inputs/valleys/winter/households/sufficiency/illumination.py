@@ -1,22 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Apr 17 16:29:21 2025
+Created on Fri Apr 18 11:52:27 2025
 
 @author: claudia
 """
-
-import pandas as pd
-
 from ramp.core.core import User
 
 User_list = []
 
-HI = User("household illumination", 1)
-User_list.append(HI)
+HTC= User("household thermal comfort", 1)
+User_list.append(HTC)
 
-HI_indoor_bulb = HI.add_appliance(4,7,2,360,0.2,10)
-HI_indoor_bulb.windows([300,480],[960,1440],0.35)
-         
-HI_outdoor_bulb = HI.add_appliance(2,14,1,180,0.2,10)
-HI_outdoor_bulb.windows([960,1380],[0,0],0.35)
+HTC_heater = HTC.add_appliance(1,800,2,240,0.1,10, occasional_use = 0.66)
+HTC_heater.windows([480,660],[1080,1200],0.35)

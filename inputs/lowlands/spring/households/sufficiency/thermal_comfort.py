@@ -13,5 +13,5 @@ User_list = []
 HSC = User("household space cooling", 1)
 User_list.append(HSC)
 
-HSC_Fan = HSC.add_appliance(4,30,2,540,0.27,30)
+HSC_Fan = HSC.add_appliance(1,30,2,540,0.27,30)
 HSC_Fan.windows([540,1200],[0,0],0.35)
